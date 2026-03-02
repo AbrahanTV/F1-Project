@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import { getNextRace, getCurrentSeason } from "./api/api";
+import Countdown from "./components/Countdown";
+import RaceList from "./components/RaceList";
+import "./styles/styles.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [nextRaceDate, setNextRaceDate] = useState(null);
+  const [races, setRaces] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const nextRaceData = await getNextRace();
+        console.log("NEXT RACE:", nextRaceData);
+
+        const seasonRaces = await getCurrentSeason();
+        console.log("SEASON RACES:", seasonRaces);
+
+        const raceDateTime = new Date(
+          `${nextRaceData.race.date}T${nextRaceData.race.time}`,
+        );
+
+        setNextRaceDate(raceDateTime);
+        setRaces(seasonRaces);
+      } catch (error) {
+        console.error("Error fetching F1 data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="container">
+      <h1>🏎️ F1 Season Calendar</h1>
+
+      {nextRaceDate && <Countdown nextRaceDate={nextRaceDate} />}
+
+      <RaceList races={races} />
+    </div>
+  );
 }
 
-export default App
+export default App;
