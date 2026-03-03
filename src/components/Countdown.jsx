@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 export default function Countdown({ nextRaceDate }) {
   const calculateTimeLeft = () => {
-    const difference = nextRaceDate - new Date();
+    const race = new Date(nextRaceDate);
+    const difference = race - new Date();
 
     if (difference <= 0) return null;
 
@@ -29,8 +30,8 @@ export default function Countdown({ nextRaceDate }) {
   return (
     <div className="countdown">
       <h2>
-        Next Race Countdown: {timeLeft?.days} days, {timeLeft?.hours} hours,{" "}
-        {timeLeft?.minutes} minutes, {timeLeft?.seconds} seconds
+        Next Race Countdown: <br /> {timeLeft.days} days, {timeLeft?.hours}{" "}
+        hours, {timeLeft?.minutes} minutes, {timeLeft?.seconds} seconds
       </h2>
       <p>{nextRaceDate.toLocaleString()}</p>
     </div>

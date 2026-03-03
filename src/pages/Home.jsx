@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { getNextRace, getCurrentSeason } from "../api/api";
 import Countdown from "../components/Countdown";
-import LastSeasonWidget from "../components/LastSeasonWidget";
+import { Link } from "react-router";
 import "../styles/home.css";
+import LastSeasonWidget from "../components/LastSeasonWidget";
 
 export default function Home() {
   const [nextRaceDate, setNextRaceDate] = useState(null);
@@ -75,20 +76,22 @@ export default function Home() {
         <section className="next-race-section">
           <p>Unable to load race data. Please try again later.</p>
         </section>
-      ) : nextRace && nextRaceDate ? (
+      ) : nextRace ? (
         <section className="next-race-section">
           <div className="next-race-container">
             <div className="next-race-info">
               <h2>NEXT RACE</h2>
               <h3 className="race-name">{raceName}</h3>
-              <p className="race-circuit">{nextRace.race || "Circuit TBA"}</p>
+              <p className="race-circuit">
+                {nextRace.circuit.circuitName || "Circuit TBA"}
+              </p>
               <div className="race-location">
-                📍 {nextRace.circuit?.location?.locality || "TBA"},{" "}
-                {nextRace.circuit?.location?.country || "TBA"}
+                📍 {nextRace.circuit.city || "TBA"},{" "}
+                {nextRace.circuit.country || "TBA"}
               </div>
             </div>
             <div className="countdown-wrapper">
-              <Countdown nextRaceDate={nextRaceDate} />
+              <Countdown nextRaceDate={nextRace.schedule.race.date || "TBA"} />
             </div>
           </div>
         </section>
@@ -97,21 +100,29 @@ export default function Home() {
       {/* Stats Section */}
       <section className="stats-section">
         <div className="stat-card">
-          <div className="stat-number">{racesCount || 0}</div>
-          <div className="stat-label">Total Races</div>
+          <Link to="/races" className="stat-link ">
+            <div className="stat-number text-decoration-none text-white">
+              {racesCount || 0}
+            </div>
+            <div className="stat-label">Total Races</div>
+          </Link>
         </div>
         <div className="stat-card">
-          <div className="stat-number">20</div>
-          <div className="stat-label">Teams</div>
+          <div className="stat-number text-5xl font-black text-yellow-400 mb-px">
+            22
+          </div>
+          <div className="stat-label">Drivers</div>
         </div>
         <div className="stat-card">
-          <div className="stat-number">10</div>
+          <div className="stat-number text-5xl font-black text-yellow-400 mb-px">
+            10
+          </div>
           <div className="stat-label">Constructors</div>
         </div>
       </section>
 
       {/* Last Season Widget */}
-      <LastSeasonWidget />
+      {/* <LastSeasonWidget /> */}
 
       {/* CTA Section */}
       <section className="cta-section">

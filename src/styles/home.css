@@ -162,6 +162,10 @@ html {
   border: 2px solid rgba(220, 0, 0, 0.3);
 }
 
+.countdown p {
+  margin-top: 1rem;
+}
+
 /* Stats Section */
 .stats-section {
   display: grid;
