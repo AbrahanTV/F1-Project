@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/Home";
 import Races from "./pages/Races";
+import Drivers from "./pages/Drivers";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/races" element={<Races />} />
+        <Route path="/drivers" element={<Drivers />} />
       </Routes>
     </BrowserRouter>
   );

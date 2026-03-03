@@ -32,3 +32,22 @@ body {
 .race-card:hover {
   transform: scale(1.03);
 }
+
+/* driver cards reuse the same look; these classes keep the markup separate */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.driver-card {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.driver-card:hover {
+  transform: scale(1.03);
+}

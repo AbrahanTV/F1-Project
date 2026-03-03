@@ -13,6 +13,7 @@ export const getCurrentSeason = async () => {
   return response.data.races || [];
 };
 
-/* export const getRaceCalendar = async => {
-  const response = await axios.get(`${BASE_URL}/current`)
-} */
+/* export const getDrivers = async () => {
+  const response = await axios.get(`${BASE_URL}/current/drivers`);
+  return response.data.drivers || [];
+}; */

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { getNextRace, getCurrentSeason } from "../api/api";
-import Countdown from "../components/Countdown";
 import { Link } from "react-router";
 import "../styles/home.css";
+import Countdown from "../components/Countdown";
 import LastSeasonWidget from "../components/LastSeasonWidget";
 
 export default function Home() {
@@ -56,7 +56,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <div className="f1-logo">🏎️</div>
+          <div className="f1-logo d-flex justify-content-center align-items-center">
+            <p className="m-0">🏎️</p>
+            {/* <img src="/imgs/F1-logo.png" alt="formula 1 logo" width={100} /> */}
+          </div>
           <h1 className="hero-title">{championship}</h1>
           <p className="hero-subtitle">Season Calendar & Race Tracker</p>
           <p className="hero-description">
@@ -70,23 +73,26 @@ export default function Home() {
       {/* Next Race Section */}
       {loading ? (
         <section className="next-race-section">
-          <p>Loading next race...</p>
+          <p className="text-white">Loading next race...</p>
         </section>
       ) : error ? (
         <section className="next-race-section">
-          <p>Unable to load race data. Please try again later.</p>
+          <p className="text-white">
+            Unable to load race data. Please try again later.
+          </p>
         </section>
       ) : nextRace ? (
         <section className="next-race-section">
           <div className="next-race-container">
             <div className="next-race-info">
-              <h2>NEXT RACE</h2>
+              <h2 className="font-text">NEXT RACE</h2>
               <h3 className="race-name">{raceName}</h3>
               <p className="race-circuit">
                 {nextRace.circuit.circuitName || "Circuit TBA"}
               </p>
               <div className="race-location">
-                📍 {nextRace.circuit.city || "TBA"},{" "}
+                <i className="bi bi-geo-alt-fill"></i>{" "}
+                {nextRace.circuit.city || "TBA"},{" "}
                 {nextRace.circuit.country || "TBA"}
               </div>
             </div>
@@ -100,24 +106,20 @@ export default function Home() {
       {/* Stats Section */}
       <section className="stats-section">
         <div className="stat-card">
-          <Link to="/races" className="stat-link ">
-            <div className="stat-number text-decoration-none text-white">
-              {racesCount || 0}
-            </div>
-            <div className="stat-label">Total Races</div>
+          <Link to="/races" className="stat-link text-decoration-none">
+            <div className="stat-number  text-danger">{racesCount || 0}</div>
+            <div className="stat-label font-text">Total Races</div>
           </Link>
         </div>
         <div className="stat-card">
-          <div className="stat-number text-5xl font-black text-yellow-400 mb-px">
-            22
-          </div>
-          <div className="stat-label">Drivers</div>
+          <Link to="/drivers" className="stat-link text-decoration-none">
+            <div className="stat-number text-warning">22</div>
+            <div className="stat-label font-text">Drivers</div>
+          </Link>
         </div>
         <div className="stat-card">
-          <div className="stat-number text-5xl font-black text-yellow-400 mb-px">
-            10
-          </div>
-          <div className="stat-label">Constructors</div>
+          <div className="stat-number text-success">10</div>
+          <div className="stat-label font-text">Constructors</div>
         </div>
       </section>
 
