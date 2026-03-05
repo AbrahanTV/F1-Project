@@ -19,13 +19,14 @@ const DriverCard = ({ driver }) => {
         </p>
       )}
       {driver.headshot_url && (
-        <p className="font-text">
+        <div className="">
           <img
             src={driver.headshot_url}
             alt="Driver Headshot"
             className="headshot"
+            draggable="false"
           />
-        </p>
+        </div>
       )}
     </div>
   );
