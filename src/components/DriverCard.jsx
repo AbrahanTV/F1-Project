@@ -1,10 +1,10 @@
-import React from "react";
+﻿import React from "react";
 
 const DriverCard = ({ driver }) => {
   if (!driver) return null;
 
   return (
-    <div className="driver-card d-flex flex-column align-items-center">
+    <div className="driver-card d-flex flex-column align-items-center rounded-3">
       <h2 className="font-bold ">
         {driver.full_name} {driver.surname}
       </h2>
@@ -21,9 +21,9 @@ const DriverCard = ({ driver }) => {
       {driver.headshot_url && (
         <div className="">
           <img
+            className="headshot"
             src={driver.headshot_url}
             alt="Driver Headshot"
-            className="headshot"
             draggable="false"
           />
         </div>
