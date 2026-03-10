@@ -289,41 +289,6 @@ html {
   color: #cccccc;
 }
 
-/* Drivers Page Styles */
-.drivers-page {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-  padding: 3rem 2rem;
-}
-
-.drivers-page h1 {
-  font-family: var(--font-bold);
-  font-size: 2.5rem;
-  color: #ffd100;
-  margin-bottom: 1rem;
-}
-
-.drivers-page p {
-  font-family: var(--font-text);
-  color: #cccccc;
-  margin-bottom: 2rem;
-}
-
-.driver-card {
-  width: 300px;
-  padding: 1rem;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 0, 0, 0.1) 0%,
-    rgba(255, 209, 0, 0.05) 100%
-  );
-  border: 2px solid rgba(220, 0, 0, 0.2);
-}
-
-.driver-card h2 {
-  font-family: var(--font-bold);
-  color: #ffffff;
-}
-
 .champion-points {
   font-size: 1rem;
   color: #999999;

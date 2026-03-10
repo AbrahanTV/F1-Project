@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { getNextRace, getCurrentSeason } from "../api/api";
 import { Link } from "react-router";
-import "../styles/home.css";
 import Countdown from "../components/Countdown";
 import LastSeasonWidget from "../components/LastSeasonWidget";
+
+import "../styles/home.css";
 
 export default function Home() {
   const [nextRaceDate, setNextRaceDate] = useState(null);
@@ -19,26 +20,30 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+
         const nextRaceData = await getNextRace();
+        const seasonRaces = await getCurrentSeason();
+
         console.log("Next race data:", nextRaceData);
+        console.log("Season races:", seasonRaces);
 
-        const currentSeason = await getCurrentSeason();
-        console.log("Current season data:", currentSeason);
+        if (nextRaceData?.race?.length > 0) {
+          const race = nextRaceData.race[0];
 
-        if (nextRaceData && nextRaceData.race) {
-          setNextRace(nextRaceData.race[0]);
+          setNextRace(race);
+          setRaceName(race.raceName);
+          setChampionship(nextRaceData.championship?.championshipName);
+
           const raceDateTime = new Date(
-            `${nextRaceData.race.date}T${nextRaceData.race.time}`,
+            `${race.schedule.race.date}T${race.schedule.race.time}`,
           );
+
           setNextRaceDate(raceDateTime);
         }
 
-        setRaceName(nextRaceData.race[0].raceName);
-        setChampionship(nextRaceData.championship.championshipName);
+        setRacesCount(seasonRaces?.length || 0);
 
-        const seasonRaces = await getCurrentSeason();
-        console.log("Season races:", seasonRaces);
-        setRacesCount(seasonRaces.length);
         setError(null);
       } catch (err) {
         console.error("Error fetching F1 data:", err);

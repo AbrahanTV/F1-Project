@@ -1,43 +1,42 @@
-/* export default function RaceCard({ race }) {
-  if (!race) return null;
-
-  console.log("RACE OBJECT:", race);
-
-  const raceDate =
-    race.date && race.time ? new Date(`${race.date}T${race.time}`) : null;
-
-  return (
-    <div className="race-card">
-      <h2>
-        Round {race.round} - {race.raceName}
-      </h2>
-
-      <p>
-        <strong>Circuit:</strong> {race.circuit?.circuitName}
-      </p>
-
-      <p>
-        <strong>Location:</strong> {race.circuit?.location?.locality},{" "}
-        {race.circuit?.location?.country}
-      </p>
-
-      <p>
-        <strong>Date:</strong> {raceDate ? raceDate.toLocaleString() : "TBA"}
-      </p>
-    </div>
-  );
-}
- */
-
 const RaceCard = ({ race }) => {
   if (!race) return null;
 
-  const raceDate = race.date;
-
   return (
     <>
-      <div className="race-card">
-        <h1>Round {race.round}</h1>
+      <div className="race-card d-flex flex-column align-items-center justify-content-center rounded-3">
+        <h2 className="">Round {race.round}</h2>
+        {race.raceName && <p className="fs-5">{race.raceName}</p>}
+        {race.circuit && (
+          <p className="font-text fs-5 text-center">
+            <strong>Circuit:</strong> {race.circuit.circuitName}. <br />{" "}
+            {race.circuit.city},{" "}
+            <strong className="text-white">{race.circuit.country}</strong>
+          </p>
+        )}
+        <p className="font-text fs-4">
+          <strong className="">Winner: </strong>
+          <span>
+            {race.winner
+              ? `${race.winner.name}  ${race.winner.surname}`
+              : "TBD"}
+            {/* <br />
+            <strong>Country: {race.winner?.country ?? "TBD"}</strong> */}
+          </span>
+        </p>
+        <p className="font-text fs-4">
+          <strong>Team Winner: </strong>
+          <span>
+            {race.teamWinner ? `${race.teamWinner.teamName}` : "TBD"}
+            {/* <br />
+            <strong>Country: {race.winner?.country ?? "TBD"}</strong> */}
+          </span>
+        </p>
+        {/* {race.teamWinner && (
+          <p className="font-text fs-4">
+            <strong className="">Team Winner:</strong>{" "}
+            <span>{race.teamWinner.teamName ?? "TBD"}</span>
+          </p>
+        )} */}
       </div>
     </>
   );

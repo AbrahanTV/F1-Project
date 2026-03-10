@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDrivers } from "../api/openF1Api";
 import DriverList from "../components/DriverList";
+import BackBtn from "../components/BackBtn";
 
 export default function Drivers() {
   // drivers fetched from the F1 API; we'll store them in state and derive a separate
@@ -35,6 +36,7 @@ export default function Drivers() {
   return (
     <>
       <div className="drivers-page d-flex flex-column ">
+        <BackBtn />
         <h1 className="font-bold">Drivers</h1>
         <p className="font-text">
           Here you can fin information about all the drivers in the current F1

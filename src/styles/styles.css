@@ -15,6 +15,25 @@ body {
   font-size: 1.5rem;
 }
 
+/*  RACES PAGE */
+.races-page {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 2rem;
+}
+
+.races-page h1 {
+  font-family: var(--font-bold);
+  font-size: 2.5rem;
+  color: #ffd100;
+  margin-bottom: 1rem;
+}
+
+.races-page p {
+  font-family: var(--font-text);
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
 .race-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -23,17 +42,50 @@ body {
 }
 
 .race-card {
-  background: #1e1e1e;
-  padding: 1rem;
-  border-radius: 10px;
+  height: 350px;
+  width: 500px;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 0, 0, 0.1) 0%,
+    rgba(255, 209, 0, 0.05) 100%
+  );
+  border: 2px solid rgba(220, 0, 0, 0.2);
   transition: transform 0.2s ease;
+  /*
+    padding: 1rem;
+    border-radius: 10px;
+    background: #1e1e1e;
+    */
 }
 
 .race-card:hover {
   transform: scale(1.03);
 }
 
-/* driver cards reuse the same look; these classes keep the markup separate */
+.race-card h2 {
+  font-family: var(--font-bold);
+  color: #ffffff;
+}
+
+/* DRIVERS PAGE */
+.drivers-page {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  padding: 3rem 2rem;
+}
+
+.drivers-page h1 {
+  font-family: var(--font-bold);
+  font-size: 2.5rem;
+  color: #ffd100;
+  margin-bottom: 1rem;
+}
+
+.drivers-page p {
+  font-family: var(--font-text);
+  color: #cccccc;
+  margin-bottom: 2rem;
+}
+
 .driver-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -42,24 +94,33 @@ body {
 }
 
 .driver-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: #1e1e1e;
-  padding: 1rem;
-  border-radius: 10px;
+  height: 350px;
+  width: 360px;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 0, 0, 0.1) 0%,
+    rgba(255, 209, 0, 0.05) 100%
+  );
+  border: 2px solid rgba(220, 0, 0, 0.2);
   transition: transform 0.2s ease;
+  /*
+    padding: 1rem;
+    border-radius: 10px;
+    background: #1e1e1e;
+    */
 }
 
 .driver-card:hover {
   transform: scale(1.03);
 }
 
-/* .headshot {
-  height: auto;
-  display: block;
-  max-width: 100%;
-  margin-top: auto;
-  text-align: center;
-} */
+.driver-card h2 {
+  font-family: var(--font-bold);
+  color: #ffffff;
+}
+
+/* BACK BTN */
+.back-btn {
+  width: fit-content;
+  background: linear-gradient(135deg, #dc0000 0%, #ff0000 100%) !important;
+}
