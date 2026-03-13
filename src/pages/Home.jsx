@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { getNextRace, getCurrentSeason } from "../api/api";
 import { Link } from "react-router";
 import Countdown from "../components/Countdown";
-import LastSeasonWidget from "../components/LastSeasonWidget";
 
 import "../styles/home.css";
 
@@ -137,7 +136,7 @@ export default function Home() {
         <p>
           Explore all races, dates, and circuit information for this season.
         </p>
-        <a href="/calendar" className="cta-button">
+        <a href="/races" className="cta-button">
           View Calendar →
         </a>
       </section>

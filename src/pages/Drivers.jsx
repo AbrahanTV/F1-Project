@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { getDrivers } from "../api/openF1Api";
+import { getDriverInfo } from "../api/api";
 import DriverList from "../components/DriverList";
 import BackBtn from "../components/BackBtn";
 
 export default function Drivers() {
-  // drivers fetched from the F1 API; we'll store them in state and derive a separate
-  // array without the last entry when rendering.
   const [drivers, setDrivers] = useState([]);
+  const [driverInfo, setDriverInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -21,7 +21,12 @@ export default function Drivers() {
           return;
         }
 
+        const driverInfoData = await getDriverInfo();
+        console.log("F1API drivers:", driverInfoData);
+
         setDrivers(driversData);
+        setDriverInfo(driverInfoData);
+
         setError(null);
       } catch (err) {
         console.error("Error fetching drivers:", err);
@@ -47,7 +52,7 @@ export default function Drivers() {
         ) : error ? (
           <p className="font-text text-danger">{error}</p>
         ) : (
-          <DriverList drivers={drivers} />
+          <DriverList drivers={drivers} driversInfo={driverInfo} />
         )}
       </div>
     </>

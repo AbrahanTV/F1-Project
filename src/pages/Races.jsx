@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import RaceList from "../components/RaceList";
 import { getCurrentSeason } from "../api/api";
 import BackBtn from "../components/BackBtn";

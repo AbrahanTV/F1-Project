@@ -95,13 +95,13 @@ body {
 
 .driver-card {
   height: 350px;
-  width: 360px;
+  width: 380px;
   background: linear-gradient(
     135deg,
     rgba(220, 0, 0, 0.1) 0%,
     rgba(255, 209, 0, 0.05) 100%
   );
-  border: 2px solid rgba(220, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255);
   transition: transform 0.2s ease;
   /*
     padding: 1rem;
