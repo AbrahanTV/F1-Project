@@ -1,0 +1,352 @@
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: var(--font-text), Arial, sans-serif;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+.container {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===== RACES PAGE ===== */
+.races-page {
+  background-color: #0a0a0a;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+}
+
+.races-page h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border-left: 4px solid #e8002d;
+  padding-left: 1rem;
+}
+
+.races-page p {
+  font-family: var(--font-text);
+  color: #888888;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.race-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.race-card {
+  background: #111111;
+  border-top: 3px solid #e8002d;
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+  height: auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.race-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(232, 0, 45, 0.15);
+  background: #1a1a1a;
+}
+
+.race-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.race-card-round {
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #888888;
+  font-weight: 600;
+}
+
+.race-card-date {
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #888888;
+}
+
+.race-card-name {
+  font-family: var(--font-bold);
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.race-card-circuit {
+  margin-bottom: 1rem;
+}
+
+.race-card-circuit-name {
+  font-family: var(--font-bold);
+  font-size: 1.15rem;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 0.25rem;
+}
+
+.race-card-circuit-location {
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: #888888;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.race-card-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 1rem 0;
+}
+
+.race-card-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.race-card-winner-name {
+  font-family: var(--font-bold);
+  font-size: 1.3rem;
+  color: #ffffff;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.result-label {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e8002d;
+  flex-shrink: 0;
+}
+
+.result-value {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  color: #888888;
+  text-align: right;
+}
+
+/* ===== DRIVERS PAGE ===== */
+.drivers-page {
+  background-color: #0a0a0a;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+}
+
+.drivers-page h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border-left: 4px solid #e8002d;
+  padding-left: 1rem;
+}
+
+.drivers-page p {
+  font-family: var(--font-text);
+  color: #888888;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.driver-card {
+  background: #111111;
+  border: none;
+  border-top: 3px solid var(--team-color, #e8002d);
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+  height: auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.driver-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
+  background: #1a1a1a;
+}
+
+.driver-card h2 {
+  font-family: var(--font-bold);
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.driver-info p {
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 0.2rem;
+}
+
+.driver-info strong {
+  color: #888888;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.headshot {
+  opacity: 0.9;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.6));
+}
+
+/* ===== CONSTRUCTORS PAGE ===== */
+.constructors-page {
+  background-color: #0a0a0a;
+  padding: 3rem 2rem;
+  min-height: 100vh;
+}
+
+.constructors-page h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border-left: 4px solid #e8002d;
+  padding-left: 1rem;
+}
+
+.constructors-page p {
+  font-family: var(--font-text);
+  color: #888888;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.constructor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.constructor-card {
+  background: #111111;
+  border-top: 3px solid var(--team-color, #e8002d);
+  padding: 1.5rem;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.constructor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: #1a1a1a;
+}
+
+.constructor-nationality {
+  font-family: var(--font-text);
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #888888;
+  margin-bottom: 0.4rem;
+}
+
+.constructor-name {
+  font-family: var(--font-bold);
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.constructor-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin-bottom: 1.25rem;
+}
+
+.constructor-stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.constructor-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.constructor-stat-value {
+  font-family: var(--font-title);
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.constructor-stat-label {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888888;
+}
+
+/* ===== BACK BUTTON ===== */
+.back-btn {
+  width: fit-content;
+  background: transparent !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 0 !important;
+  font-family: var(--font-text) !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 0.5rem 1.2rem !important;
+  transition: all 0.2s ease;
+  color: #888888 !important;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+  transform: translateX(-2px);
+}
