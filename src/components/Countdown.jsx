@@ -27,13 +27,40 @@ export default function Countdown({ nextRaceDate }) {
 
   if (!timeLeft) return <h2>Race Weekend! 🏁</h2>;
 
+  const pad = (n) => String(n).padStart(2, "0");
+
   return (
     <div className="countdown">
-      <h2>
-        Next Race Countdown: <br /> {timeLeft.days} days, {timeLeft?.hours}{" "}
-        hours, {timeLeft?.minutes} minutes, {timeLeft?.seconds} seconds
-      </h2>
-      <p>{nextRaceDate.toLocaleString()}</p>
+      <div className="countdown-grid">
+        <div className="countdown-unit">
+          <span className="countdown-value">{pad(timeLeft.days)}</span>
+          <span className="countdown-label">Days</span>
+        </div>
+        <span className="countdown-sep">:</span>
+        <div className="countdown-unit">
+          <span className="countdown-value">{pad(timeLeft.hours)}</span>
+          <span className="countdown-label">Hrs</span>
+        </div>
+        <span className="countdown-sep">:</span>
+        <div className="countdown-unit">
+          <span className="countdown-value">{pad(timeLeft.minutes)}</span>
+          <span className="countdown-label">Min</span>
+        </div>
+        <span className="countdown-sep">:</span>
+        <div className="countdown-unit">
+          <span className="countdown-value">{pad(timeLeft.seconds)}</span>
+          <span className="countdown-label">Sec</span>
+        </div>
+      </div>
+      <p className="countdown-date">
+        {new Date(nextRaceDate).toLocaleDateString("en-US", {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          timeZone: "UTC",
+        })}
+      </p>
     </div>
   );
 }

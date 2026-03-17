@@ -1,39 +1,37 @@
-﻿import React from "react";
+import React from "react";
 
 const DriverCard = ({ driver, driverInfo }) => {
   if (!driver) return null;
 
-  const teamColor = driver.team_colour;
+  const teamColor = driver.team_colour ? `#${driver.team_colour}` : "#e8002d";
 
   return (
     <div
-      className="driver-card d-flex flex-row align-items-center p-4 rounded-3"
-      style={{ backgroundColor: `#${teamColor}` }}
+      className="driver-card d-flex flex-row align-items-center p-4"
+      style={{ "--team-color": teamColor }}
     >
-      <div className="driver-info">
-        <h2 className="m-0">
-          {driver.full_name} {driver.surname}
-        </h2>
+      <div className="driver-info flex-grow-1">
+        <h2 className="m-0">{driver.full_name}</h2>
         {driver.team_name && (
-          <p className="font-text fs-4 m-0">
-            <strong>Team:</strong> {driver.team_name}
+          <p className="m-0 mt-2">
+            <strong>Team</strong> {driver.team_name}
           </p>
         )}
         {driver.driver_number && (
-          <p className="font-text fs-4">
-            <strong>Number:</strong> {driver.driver_number}
+          <p className="m-0 mt-1">
+            <strong>No.</strong> {driver.driver_number}
           </p>
         )}
         {driverInfo?.nationality && (
-          <p className="font-text fs-4 m-0 mt-1">
-            <strong>Nationality:</strong> {driverInfo.nationality}
+          <p className="m-0 mt-1">
+            <strong>Country</strong> {driverInfo.nationality}
           </p>
         )}
       </div>
       {driver.headshot_url && (
-        <div className="">
+        <div>
           <img
-            width={120}
+            width={110}
             className="headshot"
             src={driver.headshot_url}
             alt="Driver Headshot"

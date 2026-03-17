@@ -1,25 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap");
 
 :root {
-  /* Fonts */
   --font-title: "Orbitron", sans-serif;
   --font-bold: "Russo One", sans-serif;
   --font-text: "Exo 2", sans-serif;
+  --f1-red: #e8002d;
+  --f1-red-dark: #b80024;
+  --f1-black: #0a0a0a;
+  --f1-surface: #111111;
+  --f1-surface-2: #1a1a1a;
+  --f1-white: #ffffff;
+  --f1-gray: #888888;
+  --f1-gray-light: #cccccc;
 }
 
-.font-title {
-  font-family: var(--font-title);
-}
+.font-title { font-family: var(--font-title); }
+.font-bold  { font-family: var(--font-bold); }
+.font-text  { font-family: var(--font-text); }
 
-.font-bold {
-  font-family: var(--font-bold);
-}
-
-.font-text {
-  font-family: var(--font-text);
-}
-
-/* Home Page Styles */
 * {
   margin: 0;
   padding: 0;
@@ -28,21 +26,23 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0a0a0a;
-  color: white;
+  font-size: 16px;
+  font-family: var(--font-text), Arial, sans-serif;
+  background-color: var(--f1-black);
+  color: var(--f1-white);
 }
 
 html {
-  background-color: #0a0a0a;
+  background-color: var(--f1-black);
 }
 
+/* ===== HOME PAGE ===== */
 .home {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background-color: var(--f1-black);
 }
 
-/* Hero Section */
+/* ===== HERO ===== */
 .hero {
   position: relative;
   min-height: 500px;
@@ -50,32 +50,27 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(20, 20, 20, 0.9) 0%,
-    rgba(30, 30, 30, 0.8) 100%
-  );
-  border-bottom: 3px solid #dc0000;
+  padding: 5rem 2rem;
+  border-bottom: 2px solid var(--f1-red);
 }
 
 .hero-background {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background:
-    radial-gradient(
-      circle at 20% 50%,
-      rgba(220, 0, 0, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(255, 209, 0, 0.05) 0%,
-      transparent 50%
-    );
+    radial-gradient(ellipse at 10% 60%, rgba(232, 0, 45, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 20%, rgba(232, 0, 45, 0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.hero-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(to bottom left, rgba(232, 0, 45, 0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -83,57 +78,53 @@ html {
   position: relative;
   z-index: 2;
   text-align: center;
-  max-width: 700px;
-  animation: fadeInDown 0.8s ease;
+  max-width: 760px;
+  animation: fadeInDown 0.7s ease;
 }
 
 .f1-logo {
-  font-size: 4rem;
+  font-size: 3.5rem;
   display: block;
-  margin-bottom: 1rem;
-  animation: bounce 2s infinite;
-  color: #ffd100;
+  margin-bottom: 1.5rem;
 }
 
 .hero-title {
   font-family: var(--font-title);
-  font-size: 3rem;
+  font-size: 3.6rem;
   font-weight: 900;
   letter-spacing: 4px;
-  background: linear-gradient(135deg, #ffffff 0%, #ffd100 50%, #dc0000 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--f1-white);
+  text-transform: uppercase;
+  line-height: 1.15;
 }
 
 .hero-subtitle {
   font-family: var(--font-text);
-  font-size: 1.5rem;
-  color: #ffd100;
-  margin: 0.5rem 0;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  color: var(--f1-gray);
+  margin: 1.2rem 0 0.5rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
 .hero-description {
-  font-family: var(--font-bold);
+  font-family: var(--font-text);
   font-size: 1.1rem;
-  color: #cccccc;
+  color: var(--f1-gray-light);
   margin-top: 1.5rem;
-  line-height: 1.6;
+  line-height: 1.75;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Next Race Section */
+/* ===== NEXT RACE SECTION ===== */
 .next-race-section {
-  padding: 3rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 209, 0, 0.05) 0%,
-    rgba(220, 0, 0, 0.05) 100%
-  );
-  border: 1px solid rgba(220, 0, 0, 0.2);
-  margin: 2rem;
-  border-radius: 15px;
+  padding: 3rem 2.5rem;
+  margin: 2.5rem auto;
+  max-width: 1100px;
+  border-left: 3px solid var(--f1-red);
 }
 
 .next-race-container {
@@ -146,324 +137,328 @@ html {
 }
 
 .next-race-info {
-  animation: slideInLeft 0.8s ease;
+  animation: slideInLeft 0.7s ease;
 }
 
 .next-race-info h2 {
-  color: #ffd100;
-  font-size: 0.9rem;
-  letter-spacing: 3px;
+  font-family: var(--font-text);
+  color: var(--f1-red);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
   margin: 0 0 1rem 0;
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .race-name {
   font-family: var(--font-bold);
-  font-size: 2.5rem;
-  letter-spacing: 2px;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
   margin: 0.5rem 0;
-  color: #ffffff;
+  color: var(--f1-white);
   font-weight: 900;
 }
 
 .race-circuit {
   font-family: var(--font-text);
-  font-size: 1.3rem;
-  color: #cccccc;
+  font-size: 1.25rem;
+  color: var(--f1-gray-light);
   margin: 0.5rem 0;
 }
 
 .race-location {
   font-family: var(--font-text);
-  font-size: 1rem;
-  color: #999999;
+  font-size: 0.95rem;
+  color: var(--f1-gray);
   margin-top: 1rem;
-}
-
-.countdown-wrapper {
-  font-family: var(--font-bold);
-  color: white;
-  animation: slideInRight 0.8s ease;
-  background: rgba(220, 0, 0, 0.1);
-  padding: 2rem;
-  border-radius: 10px;
-  border: 2px solid rgba(220, 0, 0, 0.3);
-}
-
-.countdown p {
-  margin-top: 1rem;
-}
-
-/* Stats Section */
-.stats-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 3rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.stat-card {
-  background: linear-gradient(
-    135deg,
-    rgba(220, 0, 0, 0.1) 0%,
-    rgba(255, 209, 0, 0.05) 100%
-  );
-  padding: 2rem;
-  border-radius: 10px;
-  border: 2px solid rgba(220, 0, 0, 0.2);
-  text-align: center;
-  transition: all 0.3s ease;
-  animation: fadeIn 0.8s ease;
-}
-
-.stat-card:hover {
-  border-color: #dc0000;
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(220, 0, 0, 0.2);
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 900;
-  color: #ffd100;
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  font-size: 1rem;
-  color: #999999;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Last Season Widget */
+.countdown-wrapper {
+  font-family: var(--font-bold);
+  color: var(--f1-white);
+  animation: slideInRight 0.7s ease;
+  background: var(--f1-surface);
+  padding: 2rem;
+  border-top: 3px solid var(--f1-red);
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-grid {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: nowrap;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--f1-black);
+  padding: 0.75rem 0;
+  width: 76px;
+  flex-shrink: 0;
+}
+
+.countdown-value {
+  font-family: var(--font-title);
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--f1-white);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  width: 100%;
+  text-align: center;
+}
+
+.countdown-label {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--f1-gray);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+
+.countdown-sep {
+  font-size: 2.2rem;
+  color: var(--f1-red);
+  font-weight: 900;
+  padding-bottom: 1.4rem;
+  line-height: 1;
+}
+
+.countdown-date {
+  margin-top: 1.2rem !important;
+  font-family: var(--font-text);
+  font-size: 0.9rem;
+  color: var(--f1-gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ===== STATS SECTION ===== */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  background: var(--f1-surface);
+  padding: 2rem;
+  border-top: 3px solid var(--f1-red);
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.stat-card:hover {
+  background: var(--f1-surface-2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(232, 0, 45, 0.12);
+}
+
+.stat-link {
+  display: block;
+  text-decoration: none;
+}
+
+.stat-number {
+  font-family: var(--font-title);
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--f1-white) !important;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: var(--f1-gray);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* ===== LAST SEASON WIDGET ===== */
 .last-season-widget {
   padding: 3rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 0, 0, 0.1) 0%,
-    rgba(255, 209, 0, 0.08) 100%
-  );
-  border: 2px solid rgba(220, 0, 0, 0.3);
-  margin: 2rem;
-  border-radius: 15px;
+  background: var(--f1-surface);
+  border-top: 3px solid var(--f1-red);
+  margin: 2rem auto;
+  max-width: 1000px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  animation: slideInUp 0.8s ease;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.last-season-content {
-  flex: 1;
+  animation: slideInUp 0.7s ease;
 }
 
 .last-season-title {
-  font-size: 1.2rem;
-  color: #ffd100;
+  font-family: var(--font-text);
+  font-size: 0.85rem;
+  color: var(--f1-red);
   margin-bottom: 1.5rem;
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
   font-weight: 600;
 }
 
-.champion-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
 .champion-name {
-  font-size: 2.5rem;
+  font-family: var(--font-bold);
+  font-size: 3rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--f1-white);
   letter-spacing: 1px;
 }
 
 .champion-team {
-  font-size: 1.2rem;
-  color: #cccccc;
+  font-family: var(--font-text);
+  font-size: 1.3rem;
+  color: var(--f1-gray-light);
 }
 
 .champion-points {
-  font-size: 1rem;
-  color: #999999;
-  font-weight: 600;
+  font-family: var(--font-text);
+  font-size: 0.95rem;
+  color: var(--f1-gray);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
 }
 
 .last-season-badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, #dc0000 0%, #ff0000 100%);
-  border-radius: 50%;
-  position: relative;
-  box-shadow: 0 10px 40px rgba(220, 0, 0, 0.3);
+  width: 120px;
+  height: 120px;
+  background: var(--f1-red);
+  flex-shrink: 0;
 }
 
 .badge-year {
-  font-size: 3rem;
+  font-family: var(--font-title);
+  font-size: 2.4rem;
   font-weight: 900;
-  color: #ffd100;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--f1-white);
 }
 
-/* CTA Section */
+/* ===== CTA SECTION ===== */
 .cta-section {
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(220, 0, 0, 0.15) 0%,
-    rgba(255, 209, 0, 0.1) 100%
-  );
-  border-top: 2px solid rgba(220, 0, 0, 0.3);
-  border-bottom: 2px solid rgba(220, 0, 0, 0.3);
-  margin: 3rem 2rem;
-  border-radius: 10px;
-  animation: scaleIn 0.8s ease;
+  padding: 5rem 2rem;
+  background: var(--f1-surface);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 3rem 0;
 }
 
 .cta-section h2 {
-  font-size: 2.5rem;
-  color: #ffffff;
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--f1-white);
   margin: 0 0 1rem 0;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
 .cta-section p {
-  font-size: 1.1rem;
-  color: #cccccc;
-  margin-bottom: 2rem;
+  font-family: var(--font-text);
+  font-size: 1.05rem;
+  color: var(--f1-gray);
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
 }
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #dc0000 0%, #ff0000 100%);
-  color: white;
+  padding: 0.9rem 2.8rem;
+  background: var(--f1-red);
+  color: var(--f1-white);
   text-decoration: none;
-  border-radius: 50px;
+  font-family: var(--font-bold);
   font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
   cursor: pointer;
   border: none;
+  border-radius: 0;
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 40px rgba(220, 0, 0, 0.4);
-  background: linear-gradient(135deg, #ff0000 0%, #dc0000 100%);
+  background: var(--f1-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 0, 45, 0.35);
+  color: var(--f1-white);
 }
 
 .cta-button:active {
-  transform: scale(0.98);
+  transform: translateY(0);
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .home-footer {
   text-align: center;
   padding: 2rem;
-  color: #666666;
-  font-size: 0.9rem;
-  border-top: 1px solid rgba(220, 0, 0, 0.1);
-  margin-top: 3rem;
+  color: #333333;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  margin-top: 2rem;
+  font-family: var(--font-text);
 }
 
-/* Animations */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Responsive Design */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-  }
+  .hero-title { font-size: 2.6rem; letter-spacing: 3px; }
+  .hero-subtitle { font-size: 0.9rem; }
+  .f1-logo { font-size: 3rem; }
 
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-
-  .f1-logo {
-    font-size: 3rem;
+  .next-race-section {
+    border-left: none;
+    border-top: 3px solid var(--f1-red);
+    padding-left: 2rem;
+    margin: 1.5rem 1rem;
   }
 
   .next-race-container {
@@ -471,67 +466,22 @@ html {
     gap: 2rem;
   }
 
-  .race-name {
-    font-size: 2rem;
-  }
-
-  .cta-section h2 {
-    font-size: 2rem;
-  }
-
-  .stats-section {
-    grid-template-columns: 1fr;
-  }
+  .race-name { font-size: 2.2rem; }
+  .cta-section h2 { font-size: 1.7rem; letter-spacing: 3px; }
+  .stats-section { grid-template-columns: 1fr; }
 
   .last-season-widget {
     flex-direction: column;
     text-align: center;
   }
-
-  .last-season-badge {
-    width: 120px;
-    height: 120px;
-  }
-
-  .badge-year {
-    font-size: 2.5rem;
-  }
 }
 
 @media (max-width: 480px) {
-  .hero {
-    min-height: 400px;
-    padding: 2rem 1rem;
-  }
-
-  .hero-title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .race-name {
-    font-size: 1.5rem;
-  }
-
-  .cta-button {
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-  }
-
-  .champion-name {
-    font-size: 1.8rem;
-  }
-
-  .last-season-badge {
-    width: 100px;
-    height: 100px;
-  }
-
-  .badge-year {
-    font-size: 2rem;
-  }
+  .hero { min-height: 380px; padding: 3rem 1.5rem; }
+  .hero-title { font-size: 2.2rem; letter-spacing: 2px; }
+  .hero-subtitle { font-size: 0.85rem; letter-spacing: 3px; }
+  .race-name { font-size: 1.8rem; }
+  .cta-button { padding: 0.8rem 2rem; }
+  .countdown-unit { width: 62px; padding: 0.6rem 0; }
+  .countdown-value { font-size: 1.9rem; }
 }

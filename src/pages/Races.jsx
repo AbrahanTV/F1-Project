@@ -12,7 +12,7 @@ const Races = () => {
     const fetchRaces = async () => {
       try {
         const racesData = await getCurrentSeason();
-        console.log("Fetched races data:", racesData);
+        // console.log("Fetched races data:", racesData);
 
         if (!racesData || racesData.length === 0) {
           setError("No races returned from API");

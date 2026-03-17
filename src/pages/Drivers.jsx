@@ -14,7 +14,7 @@ export default function Drivers() {
     const fetchDrivers = async () => {
       try {
         const driversData = await getDrivers();
-        console.log("Fetched drivers data:", driversData);
+        // console.log("Fetched drivers data:", driversData);
 
         if (!driversData || driversData.length === 0) {
           setError("No drivers returned from API");
@@ -22,7 +22,7 @@ export default function Drivers() {
         }
 
         const driverInfoData = await getDriverInfo();
-        console.log("F1API drivers:", driverInfoData);
+        // console.log("F1API drivers:", driverInfoData);
 
         setDrivers(driversData);
         setDriverInfo(driverInfoData);
@@ -45,7 +45,7 @@ export default function Drivers() {
         <h1 className="font-bold">Drivers</h1>
         <p className="font-text">
           Here you can fin information about all the drivers in the current F1
-          season. Click on a driver to see more details about them.
+          season.
         </p>
         {loading ? (
           <p className="font-text">Loading drivers...</p>

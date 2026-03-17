@@ -24,8 +24,8 @@ export default function Home() {
         const nextRaceData = await getNextRace();
         const seasonRaces = await getCurrentSeason();
 
-        console.log("Next race data:", nextRaceData);
-        console.log("Season races:", seasonRaces);
+        // console.log("Next race data:", nextRaceData);
+        // console.log("Season races:", seasonRaces);
 
         if (nextRaceData?.race?.length > 0) {
           const race = nextRaceData.race[0];
@@ -110,20 +110,22 @@ export default function Home() {
       {/* Stats Section */}
       <section className="stats-section">
         <div className="stat-card">
-          <Link to="/races" className="stat-link text-decoration-none">
-            <div className="stat-number  text-danger">{racesCount || 0}</div>
+          <Link to="/races" className="stat-link">
+            <div className="stat-number">{racesCount || 0}</div>
             <div className="stat-label font-text">Total Races</div>
           </Link>
         </div>
         <div className="stat-card">
-          <Link to="/drivers" className="stat-link text-decoration-none">
-            <div className="stat-number text-warning">22</div>
+          <Link to="/drivers" className="stat-link">
+            <div className="stat-number">22</div>
             <div className="stat-label font-text">Drivers</div>
           </Link>
         </div>
         <div className="stat-card">
-          <div className="stat-number text-success">10</div>
-          <div className="stat-label font-text">Constructors</div>
+          <Link to="/constructors" className="stat-link">
+            <div className="stat-number">11</div>
+            <div className="stat-label font-text">Constructors</div>
+          </Link>
         </div>
       </section>
 
@@ -144,7 +146,8 @@ export default function Home() {
       {/* Footer */}
       <footer className="home-footer">
         <p>
-          Powered by F1 API | Stay updated with the latest Formula 1 calendar
+          Powered by F1 API & OpenF1 API | Stay updated with the latest Formula
+          1 calendar
         </p>
       </footer>
     </div>
