@@ -138,9 +138,9 @@ export default function Home() {
         <p>
           Explore all races, dates, and circuit information for this season.
         </p>
-        <a href="/races" className="cta-button">
+        <Link to="/races" className="cta-button">
           View Calendar →
-        </a>
+        </Link>
       </section>
 
       {/* Footer */}
